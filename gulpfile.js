@@ -64,7 +64,7 @@ const buildSass = () => {
                 }
             },
         }))
-        .pipe($.banner(BANNER, { pkg, year: new Date().getFullYear() }))
+        .pipe($.header(BANNER, { pkg, year: new Date().getFullYear() }))
         .pipe($.sourcemaps.write('.', { addComment: false }))
         .pipe(gulp.dest('./dist'))
         .pipe($.cleanCss({

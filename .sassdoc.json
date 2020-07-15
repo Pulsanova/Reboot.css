@@ -1,0 +1,9 @@
+{
+    "groups": {
+        "undefined": "Général"
+    },
+    "package": {
+        "title": "@pulsanova/reboot.css",
+        "homepage": "https://github.com/Pulsanova/Reboot.css"
+    }
+}

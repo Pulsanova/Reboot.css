@@ -1,0 +1,23 @@
+pre,
+code,
+kbd,
+samp {
+    font-family: $base-font-family-monospace;
+}
+
+pre {
+    margin-bottom: $base-pre-margin-bottom;
+}
+
+kbd {
+    padding: $base-kbd-padding;
+    border-radius: $base-kbd-border-radius;
+    background-color: $base-kbd-background-color;
+    color: $base-kbd-color;
+    font-size: $base-kbd-font-size;
+}
+
+code {
+    color: $base-code-color;
+    font-size: $base-code-font-size;
+}

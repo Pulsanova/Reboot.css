@@ -1,0 +1,435 @@
+/**
+ * À propos de ce fichier:
+ *
+ * Ce fichier est hautement inspiré par le `_reboot.scss` de Bootstrap v5.0.0-alpha1
+ * et est adapté à une utilisation dans l'écosystème Pulsanova.
+ *
+ * Bootstrap est sous licence MIT et copyrighté comme suit:
+ * Copyright (c) 2011-2020 Twitter, Inc.
+ * Copyright (c) 2011-2020 The Bootstrap Authors
+ */
+
+@import '~normalize.css/normalize.css';
+
+//
+// - Document
+//
+
+// 1. Remplace `box-sizing: content-box` permettant ainsi à `width` de ne pas être
+//    affecté par la valeur `padding` ou `border`.
+// 2. Spécifier @viewport provoque un chevauchement des scrollbars sur le contenu dans IE 11 et Edge,
+//    donc pour contrer ceci, on force une scrollbar sans auto-hide / sans chevauchement.
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box; // 1
+}
+
+html {
+    -ms-overflow-style: scrollbar; // 2
+}
+
+// IE10+ n'honore pas `<meta name="viewport">` dans certains cas.
+@at-root {
+    @-ms-viewport { width: device-width; }
+}
+
+//
+// - Body
+//
+
+// 1. Prévient l'ajustement de la taille de la police après le changement d'orientation sur iOS.
+// 2. Désactive la mise en avant du lien cliqué sur iOS en rendant l'effet transparent.
+body {
+    -webkit-text-size-adjust: 100%; // 1
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // 2
+}
+
+// Dans les navigateurs supportant `:focus-visible`, supprime l'outline du focus sur les éléments
+// qui ont reçoivent le focus programmatiquement mais qui n'auraient normalement pas affiché
+// de focus sans ça. En général, cela veut dire que le `outline` est uniquement appliqué si
+// l'interaction qui a mené au focus a été initié via une interaction clavier (ou alors que
+// le navigateur a determiné pour quelque raison que ce soit que l'utilisateur est en premier
+// lieu un utilisateur clavier ou/et qu'il veut que le focus soit toujours présenté.
+// @see https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible
+//      https://developer.paciellogroup.com/blog/2018/03/focus-visible-and-backwards-compatibility/
+[tabindex='-1']:focus:not(:focus-visible) {
+    // stylelint-disable-next-line declaration-no-important
+    outline: 0 !important;
+}
+
+//
+// - Liens
+//
+
+// Supprime le style des liens pour les liens placeholders / ancres nommées (sans `[href]`).
+a:not([href]):not([class]) {
+    &,
+    &:hover {
+        color: inherit;
+        text-decoration: none;
+    }
+}
+
+//
+// - Typography
+//
+
+// stylelint-disable-next-line selector-list-comma-newline-after
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+}
+
+p {
+    margin-top: 0;
+}
+
+// 1. Reset la couleur grise ajoutée par Firefox.
+hr {
+    margin-right: 0;
+    margin-left: 0;
+    border: 0;
+    background-color: currentColor;
+    color: inherit; // 1
+    opacity: .25;
+}
+
+// Défini la hauteur correcte et empêche l'attribut `size`
+// de faire ressembler le <hr> à un champ de saisie.
+hr:not([size]) {
+    height: 1px;
+}
+
+// 1. Ajoute un curseur explicite pour indiquer le comportement.
+// 2. Empêche la propriété `text-decoration` d'être ignorée.
+abbr[title] {
+    cursor: help; // 1
+    text-decoration-skip-ink: none; // 2
+}
+
+address {
+    font-style: normal;
+    line-height: inherit;
+}
+
+ol,
+ul {
+    padding-left: 2rem;
+}
+
+ol,
+ul,
+dl {
+    margin-top: 0;
+}
+
+ol ol,
+ul ul,
+ol ul,
+ul ol {
+    margin-bottom: 0;
+}
+
+dt {
+    font-weight: 700;
+}
+
+// 1. Annule le styling par défaut des navigateurs.
+dd {
+    margin-left: 0; // 1
+}
+
+blockquote {
+    margin-top: 0;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+//
+// - Code
+//
+
+// 1. Empêche le contenu de déborder du conteneur.
+// 2. Supprime la marge haute par défaut des navigateurs.
+// 3. Le fait que l'on ait spécifié @viewport provoque la un chevauchement
+//    de la scrollbar sur le contenu dans IE 11 et Edge, donc pour contrer ceci,
+//    on force une scrollbar sans auto-hide / sans chevauchement.
+pre {
+    display: block;
+    overflow: auto; // 1
+    margin-top: 0; // 2
+    -ms-overflow-style: scrollbar; // 3
+
+    // Prend en compte certain formateurs de code qui place des <code> dans des <pre>
+    code {
+        color: inherit;
+        font-size: inherit;
+        word-break: normal;
+    }
+}
+
+code {
+    word-wrap: break-word;
+
+    // Ajuste le style lorsqu'un <code> est contenu dans un <a> pour éviter
+    // de casser le style du soulignement ou autre.
+    a > & {
+        color: inherit;
+    }
+}
+
+kbd kbd {
+    padding: 0;
+    font-size: 1em;
+    font-weight: 700;
+}
+
+//
+// - Figures
+//
+
+// 1. Applique un marging cohérent.
+figure {
+    margin-top: 0; // 1
+    margin-right: 0; // 1
+    margin-left: 0; // 1
+}
+
+//
+// - Images et contenu
+//
+
+img,
+svg {
+    vertical-align: middle;
+}
+
+// Évite le delai de 300ms lors du clic sur les appareils "touch" qui supportent la propriété CSS `touch-action`.
+// En particulier, contrairement au fonctionner de la plupart des autres navigateurs, IE 11 et Edge - Windows 10
+// sur les appareils "touch" et IE Mobile 10-11.
+// @see https://getbootstrap.com/docs/4.0/content/reboot/#click-delay-optimization-for-touch
+// @see https://caniuse.com/#feat=css-touch-action
+// @see https://patrickhlauke.github.io/touch/tests/results/#suppressing-300ms-delay
+a,
+area,
+button,
+[role='button'],
+input:not([type='range']),
+label,
+select,
+summary,
+textarea {
+    touch-action: manipulation;
+}
+
+//
+// - Tableaux
+//
+
+// 1. Empêche les doubles bordures.
+table {
+    caption-side: bottom;
+    border-collapse: collapse; // 1
+}
+
+// 1. Fait en sorte que cela corresponde à l'alignement par défaut
+//    des <td> en héritant le `text-align`.
+// 2. Corrige l'alignement dans Safari.
+th {
+    /* stylelint-disable declaration-block-no-duplicate-properties */
+    text-align: inherit; // 1
+    text-align: -webkit-match-parent; // 2
+    /* stylelint-enable declaration-block-no-duplicate-properties */
+}
+
+thead,
+tbody,
+tfoot,
+tr,
+td,
+th {
+    border-width: 0;
+    border-style: solid;
+    border-color: inherit;
+}
+
+//
+// - Boutons
+//
+
+[role='button'] {
+    cursor: pointer;
+}
+
+// 1. Supprime le `border-radius` par défaut que Chrome macOS ajoute.
+button {
+    border-radius: 0; // 1
+}
+
+// 1. Ajoute le curseur "main" aux boutons non désactivés (opinionated).
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+    &:not(:disabled) {
+        cursor: pointer; // 1
+    }
+}
+
+// 1. Contourne un bug sous Firefox et IE ou les fonds transparent sur
+//    les boutons résultent en la perte du style de focus par défaut
+//    sur les boutons.
+//    Credit: https://github.com/suitcss/base/
+button:focus {
+    /* stylelint-disable declaration-block-no-duplicate-properties */
+    outline: 1px dotted; // 1
+    outline: 5px auto -webkit-focus-ring-color; // 1
+    /* stylelint-enable declaration-block-no-duplicate-properties */
+}
+
+//
+// - Formulaires
+//
+
+input,
+button,
+select,
+optgroup,
+textarea {
+    font-size: inherit;
+}
+
+// 1. Permet aux labels d'utiliser `margin` pour l'espacement.
+label {
+    display: inline-block; // 1
+}
+
+// 1. Supprime le fond jaune dans les champs auto-complétés par Chrome / Safari.
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    @if $base-input-background != transparent {
+        -webkit-box-shadow: inset 0 0 0 1000px $base-input-background; // 1
+    } @else {
+        -webkit-background-clip: text; // 1
+    }
+}
+
+// 1. Supprime la flêche de dropdown dans Chrome pour les champs montés via <datalist>.
+//    @see https://stackoverflow.com/a/54997118
+[list]::-webkit-calendar-picker-indicator {
+    display: none; // 1
+}
+
+input:not([type='range']) {
+    touch-action: manipulation;
+}
+
+// 1. Supprime l'apparence par défaut des champs temporels pour éviter un bug
+//    sous Safari Mobile qui fait que lors de la présence d'un `line-height`,
+//    le texte n'est plus centré verticalement dans le champ.
+//    @see https://bugs.webkit.org/show_bug.cgi?id=139848
+//    @see https://github.com/twbs/bootstrap/issues/11266
+input[type='date'],
+input[type='time'],
+input[type='datetime-local'],
+input[type='month'] {
+    -webkit-appearance: listbox; // 1
+}
+
+// 1. Corrige le style de l'`outline` dans Safari.
+// 2. Ceci permet de passer outre les coins super arrondis dans les
+//    champs de recherche sur iOS.
+[type='search'] {
+    outline-offset: -2px; // 1
+    -webkit-appearance: textfield; // 2
+}
+
+// 1. Supprile l'héritage du `word-wrap` dans Safari.
+select {
+    word-wrap: normal; // 1
+}
+
+// 1. Les textarea ne devraient pouvoir être redimenssionnés
+//    que verticalement pour ne pas casser leur conteneur horizontal.
+textarea {
+    resize: vertical; // 1
+}
+
+// Corrige la hauteur des champs avec un type `datetime-locale`, `date`, `month`, `week` ou `time`.
+::-webkit-datetime-edit-fields-wrapper,
+::-webkit-datetime-edit-text,
+::-webkit-datetime-edit-minute,
+::-webkit-datetime-edit-hour-field,
+::-webkit-datetime-edit-day-field,
+::-webkit-datetime-edit-month-field,
+::-webkit-datetime-edit-year-field {
+    padding: 0;
+}
+
+::-webkit-inner-spin-button {
+    height: auto;
+}
+
+// 1. Supprime le padding autour des color-pickers dans la navigateurs WebKit.
+::-webkit-color-swatch-wrapper {
+    padding: 0; // 1
+}
+
+// 1. Supprime le padding interne dans Chrome et Safari sur macOS.
+::-webkit-search-decoration {
+    -webkit-appearance: none; // 1
+}
+
+// 1. Les navigateurs ajoutent un `min-width: min-content;` par défaut sur les fieldsets.
+//    contrairement à, par exemple, les `<div>` qui ont `min-width: 0;` par défaut.
+//    Donc on reset ceci pour nous assurer que les fieldsets se comportent plus comme
+//    des éléments de type block standards.
+//    @see https://html.spec.whatwg.org/multipage/#the-fieldset-and-legend-elements
+// 2. Reset le comportement par défaut au niveau de l'`outline` sur les fieldsets.
+//    (ceci permettant d'éviter qu'ils affectent le layout de la page)
+fieldset {
+    min-width: 0; // 1
+    margin: 0; // 2
+    padding: 0; // 2
+    border: 0; // 2
+}
+
+// 1. En utilisant `float: left`, la légende se comportera comme un élément de type block.
+// 2. Corrige un bug au niveau de la disposition des éléments adjacents.
+//    @see https://github.com/twbs/bootstrap/issues/29712
+legend {
+    display: block;
+    width: 100%;
+    line-height: inherit;
+    float: left; // 1
+
+    + * {
+        clear: left; // 2
+    }
+}
+
+// 1. Les éléments avec l'attribut `[hidden]` seront toujours cachés.
+//    (nécessaire pour un affichage correct sous IE 10-)
+[hidden] {
+    // stylelint-disable-next-line declaration-no-important
+    display: none !important; // 1
+}
+
+//
+// - Divers
+//
+
+iframe {
+    border: 0;
+}
+
+output {
+    display: inline-block;
+}
+
+summary {
+    cursor: pointer;
+}

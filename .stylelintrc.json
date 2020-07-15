@@ -1,0 +1,12 @@
+{
+    "extends": "@pulsanova/stylelint-config-scss",
+    "rules": {
+        "selector-max-universal": null,
+        "selector-max-type": null,
+        "property-no-vendor-prefix": null,
+        "at-rule-no-vendor-prefix": null,
+        "scss/dollar-variable-default": [true, {
+            "ignore": "local"
+        }]
+    }
+}

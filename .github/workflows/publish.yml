@@ -3,21 +3,7 @@ on:
     push:
         tags: ['*']
 jobs:
-    build:
-        runs-on : ubuntu-latest
-        steps   :
-            - uses: actions/checkout@v2
-            - uses: actions/setup-node@v1
-            - run: |
-                echo "@pulsanova:registry=https://npm.pkg.github.com/" > .npmrc
-                echo "//npm.pkg.github.com/:_authToken=$NODE_AUTH_TOKEN" >> .npmrc
-              env:
-                NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            - run: yarn install
-            - run: yarn lint --max-warnings 0 --color
-            - run: yarn build
     publish:
-        needs   : build
         runs-on : ubuntu-latest
         steps   :
             - uses: actions/checkout@v2
@@ -31,4 +17,28 @@ jobs:
               env:
                 NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             - run: yarn install
+            - run: yarn build
             - run: yarn publish
+    publish-doc:
+        needs   : publish
+        runs-on : ubuntu-latest
+        steps   :
+            - uses: actions/checkout@v2
+                with:
+                persist-credentials: false
+            - uses: actions/setup-node@v1
+                with:
+                registry-url : https://npm.pkg.github.com/
+                scope        : '@pulsanova'
+            - run: |
+                echo "@pulsanova:registry=https://npm.pkg.github.com/" > .npmrc
+                echo "//npm.pkg.github.com/:_authToken=$NODE_AUTH_TOKEN" >> .npmrc
+                env:
+                NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - run: yarn install
+            - run: yarn build:doc
+            - uses : JamesIves/github-pages-deploy-action@3.5.7
+                with :
+                GITHUB_TOKEN : ${{ secrets.GITHUB_TOKEN }}
+                BRANCH       : gh-pages
+                FOLDER       : sassdoc

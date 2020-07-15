@@ -1,6 +1,6 @@
 {
     "name": "@pulsanova/reboot.css",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "Pulsanova CSS Normalizer",
     "style": "src/reboot.scss",
     "license": "MIT",
@@ -12,6 +12,7 @@
     ],
     "scripts": {
         "build": "gulp",
+        "build:doc": "sassdoc ./src --config ./.sassdoc.json",
         "lint": "stylelint './src/**/*.scss'"
     },
     "dependencies": {
@@ -30,6 +31,7 @@
         "gulp-sourcemaps": "^2.6.5",
         "node-sass": "^4.14.1",
         "resolve-from": "^5.0.0",
+        "sassdoc": "^2.7.2",
         "stylelint": "^13.6.1"
     },
     "publishConfig": {

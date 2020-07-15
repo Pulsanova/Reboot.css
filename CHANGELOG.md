@@ -1,3 +1,6 @@
+## 0.2.1 (2020-07-15)
+- Corrige la version publiée.
+
 ## 0.2.0 (2020-07-15)
 - Change la taille de police "root" par défaut de 14px à 16px.
 - Ajoute le style des liens qui n'était pas inclus dans les éléments.

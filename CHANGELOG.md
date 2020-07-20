@@ -1,3 +1,7 @@
+## 0.2.2 (unreleased)
+- Corrige la liste des fonts de base.  
+  (Supprime `system-ui` qui a un comportement trop imprevisible dans certains cas)
+
 ## 0.2.1 (2020-07-15)
 - Corrige la version publiée.
 

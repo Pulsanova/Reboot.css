@@ -33,9 +33,9 @@ $base-text-align: left !default;
 /// Police de base
 /// @type List
 $base-font-family:
-    system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue',
-    Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-    'Segoe UI Symbol', 'Noto Color Emoji' !default;
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue',
+    sans-serif !default;
 
 /// Police "monospaced" de base
 /// @type List

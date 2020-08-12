@@ -1,3 +1,9 @@
+## 1.0.0 (2020-08-12)
+- Première version "stable".
+- Corrige la liste des fonts de base.  
+  (Supprime `system-ui` qui a un comportement trop imprevisible dans certains cas)
+- Fixe la graisse des `strong` à `700` plutôt que `bolder`.
+
 ## 0.2.1 (2020-07-15)
 - Corrige la version publiée.
 

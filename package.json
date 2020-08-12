@@ -1,6 +1,6 @@
 {
     "name": "@pulsanova/reboot.css",
-    "version": "0.2.1",
+    "version": "1.0.0",
     "description": "Pulsanova CSS Normalizer",
     "style": "src/reboot.scss",
     "license": "MIT",
@@ -19,7 +19,7 @@
         "normalize.css": "~8.0.1"
     },
     "devDependencies": {
-        "@pulsanova/stylelint-config-scss": "~0.1.1",
+        "@pulsanova/stylelint-config-scss": "~1.0.0",
         "del": "^5.1.0",
         "gulp": "^4.0.2",
         "gulp-clean-css": "^4.3.0",

@@ -1,4 +1,4 @@
-## 1.0.0 (unreleased)
+## 1.0.0 (2020-08-12)
 - Première version "stable".
 - Corrige la liste des fonts de base.  
   (Supprime `system-ui` qui a un comportement trop imprevisible dans certains cas)

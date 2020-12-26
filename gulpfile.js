@@ -20,24 +20,24 @@ const BANNER = [
     ' */\n',
 ].join('\n');
 
+$.sass.compiler = require('sass');
+
 const sassImporter = (url, prev, done) => {
-    const isCSSFile = path.extname(url) === '.css';
-
-    if (url[0] === '~') {
-        url = resolveFrom(prev, url.substr(1));
-        url = path.relative(prev, url);
-
-        if (!isCSSFile) {
-            return { file: url };
-        }
+    if (url[0] !== '~') {
+        return null;
     }
 
-    const absPath = path.resolve(prev, url);
-    if (isCSSFile && fs.existsSync(absPath)) {
-        return { contents: fs.readFileSync(absPath, 'utf8') };
-    }
+    url = resolveFrom(prev, url.substr(1));
+    url = path.relative(prev, url);
 
-    return null;
+    return { file: url };
+};
+
+const cssImporter = (url) => {
+    if (url[0] !== '~') {
+        return null;
+    }
+    return resolveFrom('./src', url.substr(1));
 };
 
 const clean = () => del(['./dist']);
@@ -51,6 +51,7 @@ const buildSass = () => {
     return gulp.src('./src/reboot.scss')
         .pipe($.sourcemaps.init())
         .pipe($.sass(sassOptions).on('error', $.sass.logError))
+        .pipe($.cssimport({ matchPattern: '*.css', transform: cssImporter }))
         .pipe($.cleanCss({
             format: 'beautify',
             level: {

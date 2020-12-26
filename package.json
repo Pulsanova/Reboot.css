@@ -1,6 +1,6 @@
 {
     "name": "@pulsanova/reboot.css",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "Pulsanova CSS Normalizer",
     "style": "src/reboot.scss",
     "license": "MIT",
@@ -19,20 +19,21 @@
         "normalize.css": "~8.0.1"
     },
     "devDependencies": {
-        "@pulsanova/stylelint-config-scss": "~1.0.0",
-        "del": "^5.1.0",
+        "@pulsanova/stylelint-config-scss": "~1.1.0",
+        "del": "^6.0.0",
         "gulp": "^4.0.2",
-        "gulp-clean-css": "^4.3.0",
+        "gulp-clean-css": "~4.3.0",
         "gulp-cli": "^2.3.0",
-        "gulp-header": "^2.0.9",
-        "gulp-load-plugins": "^2.0.3",
-        "gulp-rename": "^2.0.0",
-        "gulp-sass": "^4.1.0",
-        "gulp-sourcemaps": "^2.6.5",
-        "node-sass": "^4.14.1",
-        "resolve-from": "^5.0.0",
-        "sassdoc": "^2.7.2",
-        "stylelint": "^13.6.1"
+        "gulp-cssimport": "^7.0.0",
+        "gulp-header": "~2.0.9",
+        "gulp-load-plugins": "~2.0.6",
+        "gulp-rename": "~2.0.0",
+        "gulp-sass": "~4.1.0",
+        "gulp-sourcemaps": "~3.0.0",
+        "resolve-from": "~5.0.0",
+        "sass": "~1.30.0",
+        "sassdoc": "~2.7.3",
+        "stylelint": "^13.8.0"
     },
     "publishConfig": {
         "registry": "https://npm.pkg.github.com/"

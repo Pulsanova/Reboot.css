@@ -1,3 +1,6 @@
+## 1.1.1 (2020-10-26)
+- Aucun changement dans cette release.
+
 ## 1.1.0 (2020-10-26)
 - Met à jour les dépendances de développement.
 

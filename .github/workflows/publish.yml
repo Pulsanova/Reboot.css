@@ -37,8 +37,9 @@ jobs:
                 NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             - run: yarn install
             - run: yarn build:doc
-            - uses : JamesIves/github-pages-deploy-action@3.5.7
+            - uses : JamesIves/github-pages-deploy-action@3.7.1
               with :
                 GITHUB_TOKEN : ${{ secrets.GITHUB_TOKEN }}
                 BRANCH       : gh-pages
                 FOLDER       : sassdoc
+                CLEAN        : true

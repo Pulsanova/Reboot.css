@@ -1,3 +1,6 @@
+## 1.1.0 (unreleased)
+- Met à jour les dépendances de développement.
+
 ## 1.0.0 (2020-08-12)
 - Première version "stable".
 - Corrige la liste des fonts de base.  

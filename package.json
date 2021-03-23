@@ -6,10 +6,7 @@
     "license": "MIT",
     "homepage": "https://github.com/Pulsanova/Reboot.css",
     "repository": "git@github.com:Pulsanova/Reboot.css.git",
-    "files": [
-        "./dist",
-        "./src"
-    ],
+    "files": [ "dist/", "src/"],
     "scripts": {
         "build": "gulp",
         "build:doc": "sassdoc ./src --config ./.sassdoc.json",

@@ -34,8 +34,5 @@
         "sass": "~1.30.0",
         "sassdoc": "~2.7.3",
         "stylelint": "^13.8.0"
-    },
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com/"
     }
 }

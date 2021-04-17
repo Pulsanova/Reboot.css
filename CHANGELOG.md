@@ -1,4 +1,4 @@
-## 2.0.0 (unreleased)
+## 2.0.0 (2021-04-17)
 - Le paquet utilise maintenant les modules SASS.
 - Supprime l'overwrite obsolète du fond des champs de texte auto-complété sous chrome.
 - Prend en charge les thèmes sombres / clairs : Il est maintenant possibile de passer

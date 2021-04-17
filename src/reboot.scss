@@ -4,7 +4,7 @@
  * Licensed under MIT license.
  */
 
-@import './variables';
+@forward './variables';
 
-@import './normalize';
-@import './elements/all';
+@use './normalize';
+@use './elements';

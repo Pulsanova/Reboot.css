@@ -1,3 +1,6 @@
+## 2.0.0 (unreleased)
+- Le paquet utilise maintenant les modules SASS.
+
 ## 1.1.1 (2020-10-26)
 - Aucun changement dans cette release.
 

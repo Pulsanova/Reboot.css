@@ -1,3 +1,5 @@
+@use '../variables' as *;
+
 blockquote {
     margin-bottom: $base-blockquote-margin-bottom;
 }

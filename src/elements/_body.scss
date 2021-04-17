@@ -1,3 +1,5 @@
+@use '../variables' as *;
+
 body {
     background-color: $base-background-color;
     color: $base-text-color;

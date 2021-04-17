@@ -3,22 +3,23 @@
 ////
 
 @use 'sass:color';
+@use './mixins' as *;
 
 /// Espacement de base entre les éléments
 /// @type Number
 $base-spacing: 1rem !default;
 
 /// Couleur de fond de base
-/// @type Color
-$base-background-color: #fff !default;
+/// @type List | Color
+$base-background-color: #fff, #121212 !default;
 
 /// Taille de base pour les polices
 /// @type Number
 $base-font-size: 16px !default;
 
 /// Couleur de base pour les textes
-/// @type Color
-$base-text-color: #333 !default;
+/// @type List | Color
+$base-text-color: #333, #e6e6e6 !default;
 
 /// Graisse de base pour les textes
 /// @type Number
@@ -106,7 +107,7 @@ $base-legend-margin-bottom: ($base-spacing / 2) !default;
 $base-pre-margin-bottom: $base-spacing !default;
 
 /// Couleur de base pour les <code>
-/// @type Color
+/// @type List | Color
 $base-code-color: #d63384 !default;
 
 /// Taille de base du texte pour les <code>
@@ -122,11 +123,11 @@ $base-kbd-padding: .2rem .4rem !default;
 $base-kbd-border-radius: .2rem !default;
 
 /// Couleur de fond de base pour les <kbd>
-/// @type Color
+/// @type List | Color
 $base-kbd-background-color: #212529 !default;
 
 /// Couleur de base pour les <kbd>
-/// @type Color
+/// @type List | Color
 $base-kbd-color: #fff !default;
 
 /// Taille de base du texte pour les <kbd>
@@ -142,7 +143,7 @@ $base-kbd-font-size: $base-code-font-size !default;
 $base-mark-padding: .2em !default;
 
 /// Couleur de fond de base pour les <mark>
-/// @type Color
+/// @type List | Color
 $base-mark-background-color: #fcf8e3 !default;
 
 //
@@ -206,9 +207,11 @@ $base-address-margin-bottom: $base-spacing !default;
 //
 
 /// Couleur de base pour les liens
-/// @type Color
-$base-link-color: #3e82c6 !default;
+/// @type List | Color
+$base-link-color: #3e82c6, #78a4d0 !default;
 
 /// Couleur de base des liens lors du survol
-/// @type Color
-$base-link-hover-color: color.scale($base-link-color, $lightness: -15%) !default;
+/// @type List | Color
+$base-link-hover-color:
+    color.scale(get-theme-value($base-link-color, 'light'), $lightness: -15%),
+    color.scale(get-theme-value($base-link-color, 'dark'), $lightness: -10%) !default;

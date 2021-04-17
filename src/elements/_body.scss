@@ -1,10 +1,14 @@
 @use '../variables' as *;
+@use '../mixins' as *;
 
 body {
-    background-color: $base-background-color;
-    color: $base-text-color;
     font-family: $base-font-family;
     font-weight: $base-font-weight;
     line-height: $base-line-height;
     text-align: $base-text-align;
+
+    @include theme-style using ($theme) {
+        background-color: get-theme-value($base-background-color, $theme);
+        color: get-theme-value($base-text-color, $theme);
+    }
 }

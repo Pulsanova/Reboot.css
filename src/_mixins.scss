@@ -1,0 +1,50 @@
+@use 'sass:list';
+
+/// Retourne la valeur du thème demandé dans une liste de veleurs.
+///
+/// @example
+///  - `get-theme-value(1px 2px, 'light')` retournera `1px`.
+///  - `get-theme-value(1px 2px, 'dark')` retournera `2px`.
+///  - `get-theme-value(1px, 'dark')` retournera `1px`.
+///  - `get-theme-value(1px, 'light')` retournera `1px`.
+///
+/// @param {List}   $value - Une liste d'un ou deux éléments.
+///                          Le premier élément sera celui du thème clair.
+///                          Le second celui du thème sombre.
+/// @param {string} $theme - Le thème (`light`, `dark`) pour lequel on veut récupérer la valeur.
+///
+/// @return {String | Number} La valeur spécifique au thème.
+@function get-theme-value($value, $theme) {
+    $length: length($value);
+
+    @if ($length <= 1) {
+        @return $value;
+    }
+
+    @return list.nth($value, if($theme == 'dark', 2, 1));
+}
+
+/// Ce mixin permet de déclarer du style dépendant du thème (`dark`, `light`) courant.
+/// Il permet aussi de déclarer le style par défaut (= `light`) directement.
+///
+/// NOTE: Ce mixin ne doit pas être appelé au niveau root car il utilise
+///       le contexte de son parent.
+///
+/// @example
+///   .my-block {
+///       @include theme-style using($theme) {
+///           color: if($theme == 'dark', black, white);
+///       }
+///   }
+///
+/// @content Sera appelé avec le thème en paramètre et doit "retourner" le style correspondant.
+///          Le thème peut être obtenu dans le "contenu" via `using($theme)` (voir l'example ci-dessus).
+@mixin theme-style() {
+    @content('light');
+
+    @each $theme in ('light', 'dark') {
+        :root[data-theme='#{$theme}'] & {
+            @content($theme);
+        }
+    }
+}

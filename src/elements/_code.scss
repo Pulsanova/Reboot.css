@@ -1,4 +1,5 @@
 @use '../variables' as *;
+@use '../mixins' as *;
 
 pre,
 code,
@@ -14,12 +15,18 @@ pre {
 kbd {
     padding: $base-kbd-padding;
     border-radius: $base-kbd-border-radius;
-    background-color: $base-kbd-background-color;
-    color: $base-kbd-color;
     font-size: $base-kbd-font-size;
+
+    @include theme-style using ($theme) {
+        background-color: get-theme-value($base-kbd-background-color, $theme);
+        color: get-theme-value($base-kbd-color, $theme);
+    }
 }
 
 code {
-    color: $base-code-color;
     font-size: $base-code-font-size;
+
+    @include theme-style using ($theme) {
+        color: get-theme-value($base-code-color, $theme);
+    }
 }

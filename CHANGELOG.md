@@ -1,5 +1,6 @@
 ## 2.0.0 (unreleased)
 - Le paquet utilise maintenant les modules SASS.
+- Supprime l'overwrite obsolète du fond des champs de texte auto-complété sous chrome.
 
 ## 1.1.1 (2020-10-26)
 - Aucun changement dans cette release.

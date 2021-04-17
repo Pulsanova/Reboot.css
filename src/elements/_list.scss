@@ -1,3 +1,5 @@
+@use '../variables' as *;
+
 ol,
 ul {
     margin-bottom: $base-list-margin-bottom;

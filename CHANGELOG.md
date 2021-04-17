@@ -1,3 +1,10 @@
+## 2.0.0 (2021-04-17)
+- Le paquet utilise maintenant les modules SASS.
+- Supprime l'overwrite obsolète du fond des champs de texte auto-complété sous chrome.
+- Prend en charge les thèmes sombres / clairs : Il est maintenant possibile de passer
+  des listes de deux couleurs pour les variables attendant des couleurs, la première
+  sera utilisée en tant que couleur de thème clair et la seconde de thème sombre.
+
 ## 1.1.1 (2020-10-26)
 - Aucun changement dans cette release.
 

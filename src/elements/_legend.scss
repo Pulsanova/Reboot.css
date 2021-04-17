@@ -1,3 +1,5 @@
+@use '../variables' as *;
+
 legend {
     margin-bottom: $base-legend-margin-bottom;
     font-size: $base-legend-font-size;

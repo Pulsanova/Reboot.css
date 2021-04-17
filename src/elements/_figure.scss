@@ -1,3 +1,5 @@
+@use '../variables' as *;
+
 figure {
     margin-bottom: $base-figure-margin-bottom;
 }

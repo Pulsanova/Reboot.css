@@ -1,4 +1,10 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
 mark {
     padding: $base-mark-padding;
-    background-color: $base-mark-background-color;
+
+    @include theme-style using ($theme) {
+        background-color: get-theme-value($base-mark-background-color, $theme);
+    }
 }

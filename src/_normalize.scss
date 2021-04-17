@@ -9,7 +9,8 @@
  * Copyright (c) 2011-2020 The Bootstrap Authors
  */
 
-@import '~normalize.css/normalize.css';
+@use '~normalize.css/normalize.css';
+@use './variables' as *;
 
 //
 // - Document
@@ -307,18 +308,6 @@ textarea {
 // 1. Permet aux labels d'utiliser `margin` pour l'espacement.
 label {
     display: inline-block; // 1
-}
-
-// 1. Supprime le fond jaune dans les champs auto-complétés par Chrome / Safari.
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-input:-webkit-autofill:active {
-    @if $base-input-background != transparent {
-        -webkit-box-shadow: inset 0 0 0 1000px $base-input-background; // 1
-    } @else {
-        -webkit-background-clip: text; // 1
-    }
 }
 
 // 1. Supprime la flêche de dropdown dans Chrome pour les champs montés via <datalist>.

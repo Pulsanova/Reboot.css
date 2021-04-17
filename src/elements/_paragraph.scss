@@ -1,3 +1,5 @@
+@use '../variables' as *;
+
 p {
     margin-bottom: $base-paragraph-margin-bottom;
 }

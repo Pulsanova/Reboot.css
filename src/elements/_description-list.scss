@@ -1,3 +1,5 @@
+@use '../variables' as *;
+
 dl {
     margin-bottom: $base-description-list-margin-bottom;
 }

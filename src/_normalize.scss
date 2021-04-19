@@ -9,8 +9,9 @@
  * Copyright (c) 2011-2020 The Bootstrap Authors
  */
 
-@use '~normalize.css/normalize.css';
 @use './variables' as *;
+
+@import '~normalize.css/normalize.css';
 
 //
 // - Document

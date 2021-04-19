@@ -1,3 +1,6 @@
+## 2.0.1 (UNRELEASED)
+- Corrige l'import de `normalize.css`.
+
 ## 2.0.0 (2021-04-17)
 - Le paquet utilise maintenant les modules SASS.
 - Supprime l'overwrite obsolète du fond des champs de texte auto-complété sous chrome.

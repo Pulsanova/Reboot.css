@@ -1,4 +1,4 @@
-## 2.0.1 (UNRELEASED)
+## 2.0.1 (2021-04-19)
 - Corrige l'import de `normalize.css`.
 
 ## 2.0.0 (2021-04-17)

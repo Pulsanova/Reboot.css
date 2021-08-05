@@ -1,6 +1,6 @@
 {
     "name": "@pulsanova/reboot.css",
-    "version": "2.1.1",
+    "version": "2.1.2",
     "description": "Pulsanova CSS Normalizer",
     "style": "src/reboot.scss",
     "license": "MIT",

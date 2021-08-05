@@ -1,10 +1,14 @@
+## 2.1.0 (unreleased)
+- Corrige les divisions : utilise `math.div()` au lieu d'un simple slash (`/`)
+  pour se conformer au changement de `sass` (voir https://sass-lang.com/d/slash-div).
+
 ## 2.0.1 (2021-04-19)
 - Corrige l'import de `normalize.css`.
 
 ## 2.0.0 (2021-04-17)
 - Le paquet utilise maintenant les modules SASS.
 - Supprime l'overwrite obsolète du fond des champs de texte auto-complété sous chrome.
-- Prend en charge les thèmes sombres / clairs : Il est maintenant possibile de passer
+- Prend en charge les thèmes sombres / clairs : Il est maintenant possible de passer
   des listes de deux couleurs pour les variables attendant des couleurs, la première
   sera utilisée en tant que couleur de thème clair et la seconde de thème sombre.
 
@@ -17,7 +21,7 @@
 ## 1.0.0 (2020-08-12)
 - Première version "stable".
 - Corrige la liste des fonts de base.  
-  (Supprime `system-ui` qui a un comportement trop imprevisible dans certains cas)
+  (Supprime `system-ui` qui a un comportement trop imprévisible dans certains cas)
 - Fixe la graisse des `strong` à `700` plutôt que `bolder`.
 
 ## 0.2.1 (2020-07-15)

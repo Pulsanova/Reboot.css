@@ -1,3 +1,6 @@
+## 2.1.1 (2021-08-05)
+- Met à jour les dépendances profondes
+
 ## 2.1.0 (2021-08-05)
 - Corrige les divisions : utilise `math.div()` au lieu d'un simple slash (`/`)
   pour se conformer au changement de `sass` (voir https://sass-lang.com/d/slash-div).

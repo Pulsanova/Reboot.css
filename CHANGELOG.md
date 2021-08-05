@@ -1,3 +1,6 @@
+## 2.1.2 (2021-08-05)
+- Corrige le CI pour la publication
+
 ## 2.1.1 (2021-08-05)
 - Met à jour les dépendances profondes
 

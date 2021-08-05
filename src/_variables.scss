@@ -2,6 +2,7 @@
 /// Variables globales de base
 ////
 
+@use 'sass:math';
 @use 'sass:color';
 @use './mixins' as *;
 
@@ -60,7 +61,7 @@ $base-heading-line-height: 1.2 !default;
 
 /// Marge basse de base pour les titres
 /// @type Number
-$base-heading-margin-bottom: ($base-spacing / 2) !default;
+$base-heading-margin-bottom: math.div($base-spacing, 2) !default;
 
 /// Taille de base du texte pour les titres <h1>
 /// @type Number
@@ -96,7 +97,7 @@ $base-legend-font-size: 1.5rem !default;
 
 /// Marge basse de base pour les <legend>
 /// @type Number
-$base-legend-margin-bottom: ($base-spacing / 2) !default;
+$base-legend-margin-bottom: math.div($base-spacing, 2) !default;
 
 //
 // - Code
@@ -164,7 +165,7 @@ $base-description-list-margin-bottom: $base-spacing !default;
 
 /// Marge basse de base pour les éléments de <dl>
 /// @type Number
-$base-description-list-item-margin-bottom: ($base-spacing / 2) !default;
+$base-description-list-item-margin-bottom: math.div($base-spacing, 2) !default;
 
 //
 // - Paragraph

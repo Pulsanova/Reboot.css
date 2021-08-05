@@ -6,6 +6,7 @@ const fs = require('fs');
 const del = require('del');
 const resolveFrom = require('resolve-from');
 const $ = require('gulp-load-plugins')();
+const sass = require('gulp-sass')(require('sass'));
 const pkg = require('./package.json');
 
 const BANNER = [
@@ -19,8 +20,6 @@ const BANNER = [
     ' * - Bootstrap v5.0.0-alpha1 | MIT License | github.com/twbs/bootstrap',
     ' */\n',
 ].join('\n');
-
-$.sass.compiler = require('sass');
 
 const sassImporter = (url, prev, done) => {
     if (url[0] !== '~') {
@@ -50,7 +49,7 @@ const buildSass = () => {
 
     return gulp.src('./src/reboot.scss')
         .pipe($.sourcemaps.init())
-        .pipe($.sass(sassOptions).on('error', $.sass.logError))
+        .pipe(sass(sassOptions).on('error', sass.logError))
         .pipe($.cssimport({ matchPattern: '*.css', transform: cssImporter }))
         .pipe($.cleanCss({
             format: 'beautify',

@@ -1,3 +1,6 @@
+## 2.1.3 (UNRELEASED)
+- Remplace la target de la font-size root de `html` à `:root`.
+
 ## 2.1.2 (2021-08-05)
 - Corrige le CI pour la publication
 

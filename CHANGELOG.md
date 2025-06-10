@@ -1,3 +1,6 @@
+## 2.1.4 (UNRELEASED)
+- Remplace l'usage des fonctions SASS par leurs équivalents via module.
+
 ## 2.1.3 (2021-11-30)
 - Remplace la target de la font-size root de `html` à `:root`.
 

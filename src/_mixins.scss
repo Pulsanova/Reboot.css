@@ -15,7 +15,7 @@
 ///
 /// @return {String | Number} La valeur spécifique au thème.
 @function get-theme-value($value, $theme) {
-    $length: length($value);
+    $length: list.length($value);
 
     @if ($length <= 1) {
         @return $value;

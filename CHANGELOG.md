@@ -1,4 +1,4 @@
-## 2.1.4 (UNRELEASED)
+## 2.1.4 (2025-06-10)
 - Remplace l'usage des fonctions SASS par leurs équivalents via module.
 
 ## 2.1.3 (2021-11-30)
